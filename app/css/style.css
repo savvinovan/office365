@@ -1,4 +1,7 @@
-body {
-  background: #eee;
-  font-size: 12px;
-  color: #333; }
+.page--body__gray {
+  font-family: Tahoma;
+  font-size: 14px;
+  background-color: #ccc;
+  color: #333;
+  text-decoration: underline;
+}
