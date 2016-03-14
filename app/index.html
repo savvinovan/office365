@@ -16,43 +16,52 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     </head>
     <body>
-      <section class="page-one__section">
-        <h3 class="page-one__h3">СВФУ предлагает своим студентам и преподавателям
-        пакет офисных программ</h3>
-        <h1 class="page-one__h1">Microsoft Office 365</h1>
-      </section>
-      <section class="page-two__section">
-        <h1 class="page-two__h1">Что такое Office 365 Pro Plus?</h1>
-        <h3 class="page-two__h3">Это Microsoft Office 2013 Pro Plus с раширенным набором возможностей</h3>
-        <ul class="page-two__ul">Доступно для работы без установки с любого
+        <div class="spacer s0"></div>
+        <div id="parallax1" class="parallaxParent">
+            <div>
+                <img src="img/DXD8B33.jpg" class="bg1" alt="">
+                <section class="page-one__section">
+                    <h3 class="page-one__h3">СВФУ предлагает своим студентам и преподавателям
+                пакет офисных программ</h3>
+                    <h1 class="page-one__h1">Microsoft Office 365</h1>
+                </section>
+            </div>
+
+        </div>
+        <section class="page-two__section">
+            <h1 class="page-two__h1">Что такое Office 365 Pro Plus?</h1>
+            <h3 class="page-two__h3">Это Microsoft Office 2013 Pro Plus с раширенным набором возможностей</h3>
+            <ul class="page-two__ul">Доступно для работы без установки с любого
 компьютера, подключенного к Интернет:
-          <li class="page-two__li">Word, Excel, PowerPoint, OneNote – работай
-онлайн без установки приложения</li>
-          <li class="page-two__li">Outlook - электронная почта до 50Gb</li>
-          <li class="page-two__li">OneDrive – облачное хранлище 1Tb</li>
-          <li class="page-two__li">Календари - встречи и события, планировщик</li>
-          <li class="page-two__li">Контакты - адреса почты, голосовое и
-текстовое общения в одном месте</li>
-          <li>Lync - мгновенные сообщения</li>
-        </ul>
-      </section>
-      <section class="page-three__section">
-      	<b>THREE</b>
-      </section>
-      <section class="page-four__section">
-      	<b>FOUR</b>
-      </section>
-      <section class="page-five__section">
-      	<b>FIVE</b>
-      </section>
+                <li class="page-two__li">Word, Excel, PowerPoint, OneNote – работай
+                онлайн без установки приложения</li>
+                <li class="page-two__li">Outlook - электронная почта до 50Gb</li>
+                <li class="page-two__li">OneDrive – облачное хранлище 1Tb</li>
+                <li class="page-two__li">Календари - встречи и события, планировщик</li>
+                <li class="page-two__li">Контакты - адреса почты, голосовое и
+                текстовое общения в одном месте</li>
+                <li>Lync - мгновенные сообщения</li>
+            </ul>
+        </section>
+        <section class="page-three__section">
+            <b>THREE</b>
+        </section>
+        <section class="page-four__section">
+            <b>FOUR</b>
+        </section>
+        <section class="page-five__section">
+            <b>FIVE</b>
+        </section>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <!-- Add your site or application content here -->
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+        <script src="js/vendor/TweenMax.min.js"></script>
+        <script src="js/vendor/ScrollMagic.js"></script>
+        <script src="js/vendor/animation.gsap.js"></script>
+        <script src="js/vendor/debug.addIndicators.js"></script>
         <script src="js/vendor/jQuery.scrollSpeed.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
@@ -69,28 +78,30 @@
         </script>
 
         <script>
-        	$(function () { // wait for document ready
-        		// init
-        		var controller = new ScrollMagic.Controller({
-        			globalSceneOptions: {
-        				triggerHook: 'onLeave'
-        			}
-        		});
+            // init controller
+            var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
 
-        		// get all slides
-        		var slides = document.querySelectorAll("section.panel");
+            // build scenes
+            new ScrollMagic.Scene({triggerElement: "#parallax1"})
+            .setTween("#parallax1 > div", {y: "80%", ease: Linear.easeNone})
+            .addIndicators()
+            .addTo(controller);
 
-        		// create scene for every slide
-        		for (var i=0; i<slides.length; i++) {
-        			new ScrollMagic.Scene({
-        					triggerElement: slides[i]
-        				})
-        				.setPin(slides[i])
-        				.addIndicators() // add indicators (requires plugin)
-        				.addTo(controller);
-        		}
-        	});
-          jQuery.scrollSpeed(100, 800);
+            new ScrollMagic.Scene({triggerElement: "#parallax1"})
+            .setTween(".page-one__section", {y: "20%", ease: Linear.easeNone})
+            .addIndicators()
+            .addTo(controller);
+
+            new ScrollMagic.Scene({triggerElement: "#parallax2"})
+            .setTween("#parallax2 > div", {y: "80%", ease: Linear.easeNone})
+            .addIndicators()
+            .addTo(controller);
+
+            new ScrollMagic.Scene({triggerElement: "#parallax3"})
+            .setTween("#parallax3 > div", {y: "80%", ease: Linear.easeNone})
+            .addIndicators()
+            .addTo(controller);
+            jQuery.scrollSpeed(100, 800);
         </script>
     </body>
 </html>
