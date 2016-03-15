@@ -1,64 +1,61 @@
 body
     height 1500px
-/*.page-one__section*/
+.disable_select
+    -webkit-touch-callout none
+    -webkit-user-select none
+    -khtml-user-select none
+    -moz-user-select none
+    -ms-user-select none
+    user-select none
 .bg1
-  position fixed
-  top 0
-  left 0
-  min-height 75%
-  height 75%
-  z-index -100
-.page-two__section
-    background url("../img/bg2.jpg") no-repeat center center fixed
-    -webkit-background-size cover
-    -moz-background-size cover
-    -o-background-size cover
-    background-size cover
+    position fixed
+    top -10%
+    left -10%
+    min-height 75%
+    height 75%
+    z-index -100
+.dark
+    background-color rgba(0, 0, 0, 0.5)
+    position absolute
+    top 0
+    left 0
     width 100%
     height 100%
-.page-three__section
-    background url("../img/bg3.jpg") no-repeat center center fixed
-    -webkit-background-size cover
-    -moz-background-size cover
-    -o-background-size cover
-    background-size cover
-    width 100%
-    height 100%
-.page-four__section
-    background url("../img/bg4.jpg") no-repeat center center fixed
-    -webkit-background-size cover
-    -moz-background-size cover
-    -o-background-size cover
-    background-size cover
-    width 100%
-    height 100%
-.page-five__section
-    background url("../img/bg5.jpg") no-repeat center center fixed
-    -webkit-background-size cover
-    -moz-background-size cover
-    -o-background-size cover
-    background-size cover
-    width 100%
-    height 100%
-.page-one__h1
+    z-index -50
+.page-one-windows-apps__img
+    position absolute
+    top 20%
+    left 50%
+    margin-left -400px
+    display block
+    box-shadow 2px 5px 25px #000
+.page-one-title__h1
     font-family "Roboto"
     font-weight 700
     font-size 5em
-    text-align center
     color white
     margin 0
     text-shadow 2px 2px 8px #000
-.page-one__h3
-    padding-top 465px
-    font-family "Open Sans"
+    z-index 1000
+.page-one__section
+    display table
+    position absolute
+    top 27%
+    vertical-align middle
+    text-align center
+    width 100%
+    z-index 1000
+.page-one-text__h3
+    font-family "Roboto Condensed"
     font-weight 300
-    font-size 1.2em
+    font-style italic
+    font-size 1.5em
     text-align center
     color white
     margin 0
-    font-style italic
-    text-shadow 2px 2px 8px #000
-    padding-bottom 50px
+    text-shadow 2px 2px 1px #000
+    z-index 1000
+    padding-bottom 2em
 .page-one-office-logo__img
     width 200px
     float right
@@ -80,7 +77,7 @@ body
     font-style italic
     text-shadow 1px 1px 4px #000
 .page-two__h1
-    padding-top 250px
+    padding-top 20%
     font-family "Roboto"
     font-weight 700
     font-size 5em
@@ -101,8 +98,7 @@ body
 .parallaxParent
     height 100vh
     overflow hidden
-
 .parallaxParent > *
-  height: 200%
-  position: relative
-  top: -100%
+    height: 200%
+    position: relative
+    top: -100%
