@@ -1,0 +1,43 @@
+.slide-one-title__h1 {
+  font-size: 5em;
+  color: #fff;
+  font-family: "Roboto";
+}
+.slide-one-title-center__div {
+  display: table;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 30%;
+  left: 0;
+}
+.slide-one-windows-apps__img {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  margin-left: -400px;
+}
+.slide-one__div {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.slide-two__div {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.slide-one-bg__img {
+  top: -100px;
+}
+.slide-one-bg__img {
+  width: 100%;
+  min-width: 100%;
+  min-height: 140%;
+}
+body {
+  backgrond: #eee;
+}

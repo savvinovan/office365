@@ -10,7 +10,8 @@
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/style.css">
+        <!--<link rel="stylesheet" href="css/style.css">-->
+        <link rel="stylesheet" href="css/index.css">
         <!-- FONTS -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:700,400italic,400&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
@@ -18,46 +19,20 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <div id="parallax1" class="parallaxParent">
-            <div>
-                <div class="dark"></div>
-                <img src="img/bg1.jpg" class="bg1 disable_select" alt="">
-                <section class="page-one__section">
-                    <h3 class="page-one-text__h3 disable_select">СВФУ предлагает своим студентам и преподавателям
-                пакет офисных программ</h3>
-                    <h1 class="page-one-title__h1 disable_select">Microsoft Office 365</h1>
-                </section>
-                <img src="img/windowsapps.png" alt="" class="page-one-windows-apps__img disable_select">
-            </div>
+        <div class="slide-one__div">
+          <img class="slide-one-bg__img" src="img/bg1.jpg" alt="" />
+          <div class="slide-one-title-center__div">
+            <h1 class="slide-one-title__h1">Microsoft Office 365</h1>
+          </div>
+          <img class="slide-one-windows-apps__img" src="img/windowsapps.png" alt="" />
         </div>
-        <div id="parallax2" class="parallaxParent">
-            <div>
-                <div class="dark"></div>
-                <img src="img/bg2.jpg" class="disable_select" alt="">
-                <section class="page-one__section">
-                    <h3 class="page-one-text__h3 disable_select">СВФУ предлагает своим студентам и преподавателям
-                пакет офисных программ</h3>
-                    <h1 class="page-one-title__h1 disable_select">Что такое Office 365 Pro Plus?</h1>
-                    <h3 class="page-two__h3">Это Microsoft Office 2013 Pro Plus с раширенным набором возможностей</h3>
-                </section>
-            </div>
-        </div>
+        <div class="slide-two__div">
+          <img src="img/bg2.jpg" alt="" />
+          <div class="slide-two-title-center__div">
+            <h1 class="slide-two-title__h1">Hello</h1>
 
-        <section class="page-two__section">
-            <h1 class="page-two__h1">Что такое Office 365 Pro Plus?</h1>
-            <h3 class="page-two__h3">Это Microsoft Office 2013 Pro Plus с раширенным набором возможностей</h3>
-            <ul class="page-two__ul">Доступно для работы без установки с любого
-компьютера, подключенного к Интернет:
-                <li class="page-two__li">Word, Excel, PowerPoint, OneNote – работай
-                онлайн без установки приложения</li>
-                <li class="page-two__li">Outlook - электронная почта до 50Gb</li>
-                <li class="page-two__li">OneDrive – облачное хранлище 1Tb</li>
-                <li class="page-two__li">Календари - встречи и события, планировщик</li>
-                <li class="page-two__li">Контакты - адреса почты, голосовое и
-                текстовое общения в одном месте</li>
-                <li>Lync - мгновенные сообщения</li>
-            </ul>
-        </section>
+          </div>
+        </div>
         <!--[if lt IE 8]>
             <p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите ваш браузер</a>.</p>
         <![endif]-->
@@ -68,7 +43,7 @@
         <script src="js/vendor/debug.addIndicators.js"></script>
         <script src="js/vendor/jQuery.scrollSpeed.js"></script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <!--<script src="js/main.js"></script>-->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -79,10 +54,39 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X','auto');ga('send','pageview');
         </script>
-
         <script>
-            jQuery.scrollSpeed(100, 800);
-            $('.bg1').mousedown(function(){return false});
+            //jQuery.scrollSpeed(100, 800);
+            //$('.bg1').mousedown(function(){return false});
+            var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: "200%"}});
+            new ScrollMagic.Scene({
+              triggerElement: ".slide-one__div",
+              triggerHook: "onLeave"
+            })
+            .setTween(".slide-one-bg__img", {y:"-10%"})
+            .addIndicators()
+            .addTo(controller);
+
+            new ScrollMagic.Scene({
+              triggerElement: ".slide-one_div",
+              triggerHook: "onLeave"
+            })
+            .setTween(".slide-one-title__h1", {scale: "1.7", y: "-50%"})
+            .addTo(controller);
+
+            new ScrollMagic.Scene({
+              triggerElement: ".slide-one_div",
+              triggerHook: "onLeave"
+            })
+            .setTween(".slide-one-windows-apps__img", {scale: "1.7", y: "-150%"})
+            .addTo(controller);
+
+            new ScrollMagic.Scene({
+              triggerElement: ".slide-two__div",
+              triggerHook: "onEnter"
+            })
+            .setTween(".slide-two__div img", 1, {y:"-10%",scale:"1.1"})
+            .addIndicators()
+            .addTo(controller);
         </script>
     </body>
 </html>
