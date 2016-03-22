@@ -22,15 +22,15 @@
         <div class="slide-one__div">
           <img class="slide-one-bg__img" src="img/bg1.jpg" alt="" />
           <div class="slide-one-title-center__div">
+            <h2 class="slide-one-secondarytitle__h2">СВФУ предлагает студентам пакет офисных программ</h2>
             <h1 class="slide-one-title__h1">Microsoft Office 365</h1>
           </div>
           <img class="slide-one-windows-apps__img" src="img/windowsapps.png" alt="" />
         </div>
         <div class="slide-two__div">
-          <img src="img/bg2.jpg" alt="" />
+          <img class="slide-two-bg__img" src="img/bg2.jpg" alt="" />
           <div class="slide-two-title-center__div">
-            <h1 class="slide-two-title__h1">Hello</h1>
-
+            <h1 class="slide-two-title__h1">Что такое Office 365 Pro Plus? Это Microsoft Office 2013 Pro Plus с раширенным набором возможностей</h1>
           </div>
         </div>
         <!--[if lt IE 8]>
@@ -62,22 +62,8 @@
               triggerElement: ".slide-one__div",
               triggerHook: "onLeave"
             })
-            .setTween(".slide-one-bg__img", {y:"-10%"})
+            .setTween(".slide-one-bg__img", {scale: "1.2",y:"-10%"})
             .addIndicators()
-            .addTo(controller);
-
-            new ScrollMagic.Scene({
-              triggerElement: ".slide-one_div",
-              triggerHook: "onLeave"
-            })
-            .setTween(".slide-one-title__h1", {scale: "1.7", y: "-50%"})
-            .addTo(controller);
-
-            new ScrollMagic.Scene({
-              triggerElement: ".slide-one_div",
-              triggerHook: "onLeave"
-            })
-            .setTween(".slide-one-windows-apps__img", {scale: "1.7", y: "-150%"})
             .addTo(controller);
 
             new ScrollMagic.Scene({
@@ -87,6 +73,18 @@
             .setTween(".slide-two__div img", 1, {y:"-10%",scale:"1.1"})
             .addIndicators()
             .addTo(controller);
+
+
+            $('.slide-one-bg__img').each(function(){
+              var imgClass = (this.width/this.height > 1) ? 'slide-one-bg-tall__img' : 'slide-one-bg-wide__img';
+              $(this).addClass(imgClass);
+            })
+
+            $('.slide-two-bg__img').each(function(){
+              var imgClass = (this.width/this.height > 1) ? 'slide-one-bg-tall__img' : 'slide-one-bg-wide__img';
+              $(this).addClass(imgClass);
+            })
+
         </script>
     </body>
 </html>
