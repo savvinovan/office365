@@ -15,23 +15,53 @@
         <!-- FONTS -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:700,400italic,400&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <div class="slide-one__div">
+          <div class="slide-one-dark__div"></div>
           <img class="slide-one-bg__img" src="img/bg1.jpg" alt="" />
           <div class="slide-one-title-center__div">
             <h2 class="slide-one-secondarytitle__h2">СВФУ предлагает студентам пакет офисных программ</h2>
-            <h1 class="slide-one-title__h1">Microsoft Office 365</h1>
+            <h1 class="slide-one-title__h1">Microsoft Office 365 Pro Plus</h1>
           </div>
           <img class="slide-one-windows-apps__img" src="img/windowsapps.png" alt="" />
+          <div class="slide-one-title-center2__div">
+            <h2 class="slide-one-secondarytitle2__h2">Microsoft Office 2016 Pro Plus - это Microsoft Office с расширенным набором возможностей</h2>
+          </div>
+          <div class="slide-one-list-left__div">
+            <h2 id="slide2" class="slide-one-secondarytitle__h2">Доступно для работы без установки с любого компьютера, подключенного к Интернет:</h2>
+            <ul class="slide-two-list__ul">
+              <li>Word, Excel, PowerPoint, OneNote – работай онлайн без установки приложения</li>
+              <li>Outlook - электронная почта до 50Gb</li>
+              <li>OneDrive – облачное хранлище 1Tb</li>
+              <li>Календари - встречи и события, планировщик</li>
+              <li>Контакты - адреса почты, голосовое и текстовое общения в одном месте</li>
+              <li>Lync - мгновенные сообщения</li>
+            </ul>
+          </div>
+          <div class="slide-one-list-right__div">
+            <h2 class="slide-one-secondarytitle__h2">Доступно для скачивания и установки, для работы даже без Интернета:</h2>
+            <ul class="slide-two-list__ul">
+              <li>Word</li>
+              <li>Excel</li>
+              <li>PowerPoint</li>
+              <li>Access</li>
+              <li>OneNote</li>
+              <li>Outlook</li>
+              <li>OneDrive</li>
+              <li>Lync</li>
+            </ul>
+          </div>
         </div>
         <div class="slide-two__div">
-          <img class="slide-two-bg__img" src="img/bg2.jpg" alt="" />
           <div class="slide-two-title-center__div">
-            <h1 class="slide-two-title__h1">Что такое Office 365 Pro Plus? Это Microsoft Office 2013 Pro Plus с раширенным набором возможностей</h1>
+            <h1 class="slide-two-title__h1">ЗАРЕГИСТРИРУЙТЕСЬ</h1>
+            <h2 class="slide-two-secondarytitle__h2">Для получения Office 365 Pro Plus</h2>
+            <div class="slide-two-button__div">
+              <input type="button" name="name" class="slide-two-button__input" value="РЕГИСТРАЦИЯ">
+            </div>
           </div>
+
         </div>
         <!--[if lt IE 8]>
             <p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите ваш браузер</a>.</p>
@@ -57,9 +87,11 @@
         <script>
             //jQuery.scrollSpeed(100, 800);
             //$('.bg1').mousedown(function(){return false});
-            var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: "200%"}});
+            var controller = new ScrollMagic.Controller();
+
             new ScrollMagic.Scene({
               triggerElement: ".slide-one__div",
+              duration: "200%",
               triggerHook: "onLeave"
             })
             .setTween(".slide-one-bg__img", {scale: "1.2",y:"-10%"})
@@ -67,12 +99,33 @@
             .addTo(controller);
 
             new ScrollMagic.Scene({
-              triggerElement: ".slide-two__div",
+              triggerElement: "#slide2",
+              duration: "400",
               triggerHook: "onEnter"
             })
-            .setTween(".slide-two__div img", 1, {y:"-10%",scale:"1.1"})
+            .setTween(".slide-one-secondarytitle2__h2", {opacity: "1"})
             .addIndicators()
             .addTo(controller);
+
+            new ScrollMagic.Scene({
+              triggerElement: "#slide2",
+              duration: "400",
+              triggerHook: "onEnter"
+            })
+            .setTween(".slide-one-list-right__div", {opacity: "1"})
+            .addIndicators()
+            .addTo(controller);
+
+            new ScrollMagic.Scene({
+              triggerElement: "#slide2",
+              duration: "400",
+              triggerHook: "onEnter"
+            })
+            .setTween(".slide-one-list-left__div", {opacity: "1"})
+            .addIndicators()
+            .addTo(controller);
+
+
 
 
             $('.slide-one-bg__img').each(function(){
@@ -80,11 +133,7 @@
               $(this).addClass(imgClass);
             })
 
-            $('.slide-two-bg__img').each(function(){
-              var imgClass = (this.width/this.height > 1) ? 'slide-one-bg-tall__img' : 'slide-one-bg-wide__img';
-              $(this).addClass(imgClass);
-            })
-
+            jQuery.scrollSpeed(100, 800);
         </script>
     </body>
 </html>
