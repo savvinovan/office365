@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="icon" href="favicon.ico?v=2" />
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -14,7 +15,7 @@
         <link rel="stylesheet" href="css/index.css">
         <!-- FONTS -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:700,400italic,400&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=PT+Sans:700italic,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <div class="slide-one__div">
@@ -29,18 +30,18 @@
             <h2 class="slide-one-secondarytitle2__h2">Microsoft Office 2016 Pro Plus - это Microsoft Office с расширенным набором возможностей</h2>
           </div>
           <div class="slide-one-list-left__div">
-            <h2 id="slide2" class="slide-one-secondarytitle__h2">Доступно для работы без установки с любого компьютера, подключенного к Интернет:</h2>
+            <h3 id="slide2" class="slide-one-secondarytitle__h3">Доступно для работы без установки с любого компьютера, подключенного к Интернет:</h3>
             <ul class="slide-two-list__ul">
               <li>Word, Excel, PowerPoint, OneNote – работай онлайн без установки приложения</li>
               <li>Outlook - электронная почта до 50Gb</li>
-              <li>OneDrive – облачное хранлище 1Tb</li>
+              <li>OneDrive – облачное хранилище 1Tb</li>
               <li>Календари - встречи и события, планировщик</li>
               <li>Контакты - адреса почты, голосовое и текстовое общения в одном месте</li>
               <li>Lync - мгновенные сообщения</li>
             </ul>
           </div>
           <div class="slide-one-list-right__div">
-            <h2 class="slide-one-secondarytitle__h2">Доступно для скачивания и установки, для работы даже без Интернета:</h2>
+            <h3 class="slide-one-secondarytitle__h3">Доступно для скачивания и установки, для работы даже без Интернета:</h3>
             <ul class="slide-two-list__ul">
               <li>Word</li>
               <li>Excel</li>
@@ -56,12 +57,20 @@
         <div class="slide-two__div">
           <div class="slide-two-title-center__div">
             <h1 class="slide-two-title__h1">ЗАРЕГИСТРИРУЙТЕСЬ</h1>
-            <h2 class="slide-two-secondarytitle__h2">Для получения Office 365 Pro Plus</h2>
+            <h2 class="slide-two-secondarytitle__h2--light">Чтобы получить Microsoft Office 365 Pro Plus</h2>
             <div class="slide-two-button__div">
-              <input type="button" name="name" class="slide-two-button__input" value="РЕГИСТРАЦИЯ">
+              <input type="button" id="registration-button" name="name" class="slide-two-button__input" onclick="window.location.href = 'http://aduser.s-vfu.ru'" value="РЕГИСТРАЦИЯ">
             </div>
           </div>
+        </div>
+        <div id="map" style="width:100%; height:100vh">
 
+        </div>
+        <div class="map-well__div">
+          <h3 class="map-well-text__h3">
+            Возникли проблемы с регистрацией или появились вопросы, напишите нам: aduser@s-vfu.ru.
+Время работы отдела в будни с 9 до 18, обед с 13 до 14. <a class="map-well-link__a" href="http://s-vfu.ru/universitet/rukovodstvo-i-struktura/strukturnye-podrazdeleniya/ui/ois/">Отдел информационных систем Управления информатизации СВФУ</a>
+          </h3>
         </div>
         <!--[if lt IE 8]>
             <p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите ваш браузер</a>.</p>
@@ -73,6 +82,7 @@
         <script src="js/vendor/debug.addIndicators.js"></script>
         <script src="js/vendor/jQuery.scrollSpeed.js"></script>
         <script src="js/plugins.js"></script>
+        <script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
         <!--<script src="js/main.js"></script>-->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -125,7 +135,14 @@
             .addIndicators()
             .addTo(controller);
 
-
+            new ScrollMagic.Scene({
+              triggerElement: "#registration-button",
+              duration: "200",
+              triggerHook: "onEnter"
+            })
+            .setTween(".slide-two-title-center__div", {opacity: "1"})
+            .addIndicators()
+            .addTo(controller);
 
 
             $('.slide-one-bg__img').each(function(){
@@ -134,6 +151,20 @@
             })
 
             jQuery.scrollSpeed(100, 800);
+
+            var map;
+            DG.then(function () {
+                map = DG.map('map', {
+                    center: [62.016371,129.70327],
+                    zoom: 17,
+                    scrollWheelZoom: false
+                });
+                DG.marker([62.016696,129.703431]).addTo(map).bindPopup('Отдел информационных систем Управления информатизации СВФУ, каб 632');
+            });
+
+          $('#map').css('z-index','1');
+          $('.map-well__div').css('z-index','20');
+
         </script>
     </body>
 </html>
