@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="css/main.css">
         <!--<link rel="stylesheet" href="css/style.css">-->
         <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- FONTS -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:700,400italic,400&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=PT+Sans:700italic,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
@@ -25,7 +26,14 @@
             <h2 class="slide-one-secondarytitle__h2">СВФУ предлагает студентам пакет офисных программ</h2>
             <h1 class="slide-one-title__h1">Microsoft Office 365 Pro Plus</h1>
           </div>
-          <img class="slide-one-windows-apps__img" src="img/windowsapps.png" alt="" />
+            <div class="slide-one-windows-apps__img">
+                <img src="img/word-icon.png" alt="">
+                <img src="img/excel-icon.png" alt="">
+                <img src="img/powerpoint-icon.png" alt="">
+                <img src="img/onenote-icon.png" alt="">
+                <img src="img/outlook-icon.png" alt="">
+                <img src="img/access-icon.png" alt="">
+            </div>
           <div class="slide-one-title-center2__div">
             <h2 class="slide-one-secondarytitle2__h2">Microsoft Office 2016 Pro Plus - это Microsoft Office с расширенным набором возможностей</h2>
           </div>
@@ -60,6 +68,15 @@
             <h2 class="slide-two-secondarytitle__h2--light">Чтобы получить Microsoft Office 365 Pro Plus</h2>
             <div class="slide-two-button__div">
               <input type="button" id="registration-button" name="name" class="slide-two-button__input" onclick="window.location.href = 'http://aduser.s-vfu.ru'" value="РЕГИСТРАЦИЯ">
+            </div>
+          </div>
+        </div>
+        <div class="slide-three__div">
+          <div class="slide-three-title-center__div">
+            <h1 class="slide-three-title__h1">УСТАНОВИТЕ</h1>
+            <h2 class="slide-three-secondarytitle__h2--light">Установите и активируйте Office 365 Pro Plus</h2>
+            <div class="slide-three-button__div">
+              <input type="button" id="instruction-button" name="name" class="slide-three-button__input" onclick="window.location.href = 'office-install.html'" value="ИНСТРУКЦИЯ">
             </div>
           </div>
         </div>
@@ -140,6 +157,15 @@
               triggerHook: "onEnter"
             })
             .setTween(".slide-two-title-center__div", {opacity: "1"})
+            .addIndicators()
+            .addTo(controller);
+
+            new ScrollMagic.Scene({
+              triggerElement: "#instruction-button",
+              duration: "200",
+              triggerHook: "onEnter"
+            })
+            .setTween(".slide-three-title-center__div", {opacity: "1"})
             .addIndicators()
             .addTo(controller);
 

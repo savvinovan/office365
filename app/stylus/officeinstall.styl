@@ -1,19 +1,45 @@
+$c1 = #005C97
+$c2 = #363795
+$fc1 = #fff
+$fc2 = #fff
 body
     font-family "Roboto"
     font-weight 400
     font-size 1.2em
+    text-shadow 1px 1px 1px #333
+a:link, a:visited
+    color #fff
+    border-bottom 1px solid #fff
+a:hover, a:active
+    color #fff
+    border-bottom none
+    text-decoration: none
+.gradient-bg__section--odd
+    widht 100%
+    height 100vh
+    background linear-gradient(to bottom right, $c1, $c2)
+.gradient-bg__section--even
+    widht 100%
+    background linear-gradient(to bottom left, $c2, $c1)
+.section1-icons__div
+    padding-top 50px
+.section1-icons__div img
+    padding-bottom 20px
 h1
-    font-family "PT Sans"
+    font-family 'Open Sans', 'PT Sans'
     font-size 3em
-    font-weight 700
-    font-style italic
-    color #333
+    font-weight 300
+    color $fc1
+    text-shadow 1px 1px 1px #333
 .center-text__div
-    width 60%
     margin 0 auto
     display table
     text-align center
-    color #444
+    color $fc2
     height 100vh
 .center-text__div p
     line-height 2em
+    font-family "Roboto"
+    font-size 1em
+    font-weight 300
+    text-shadow 1px 1px 1px #333

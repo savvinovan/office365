@@ -16,7 +16,9 @@ gulp.task('default', ['stylus','browser-sync'])
 
 gulp.task('stylus', function () {
   return gulp.src('./app/stylus/*.styl')
-    .pipe(stylus())
+    .pipe(stylus({
+        compress: true
+    }))
     .pipe(gulp.dest('./app/css'))
     .pipe(browserSync.stream());
 });
